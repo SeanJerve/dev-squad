@@ -1,0 +1,28 @@
+{
+  "name": "dev-squad",
+  "version": "1.0.0",
+  "description": "Universal Multi-Agent Spec-Driven Development (SDD) Engine & Security Gatekeeper",
+  "main": "cli.mjs",
+  "bin": {
+    "dev-squad": "./cli.mjs"
+  },
+  "type": "module",
+  "scripts": {
+    "start": "node cli.mjs",
+    "audit": "node cli.mjs audit",
+    "dashboard": "node cli.mjs dashboard"
+  },
+  "keywords": [
+    "spec-driven-development",
+    "ai-agents",
+    "sdd",
+    "owasp",
+    "code-audit",
+    "developer-tools",
+    "antigravity",
+    "claude-code",
+    "cursor"
+  ],
+  "author": "Sean Jerve",
+  "license": "MIT"
+}
