@@ -1,0 +1,56 @@
+{
+  "business_name": "Apex Iron Gym & Fitness",
+  "tagline": "Forge Your Strongest Self in Legazpi City",
+  "tier": "tier1", 
+  "contact": {
+    "phone": "+63 917 123 4567",
+    "email": "contact@apexirongym.ph",
+    "address": "Rizal St., Old Albay District, Legazpi City, Albay, Philippines",
+    "google_maps_url": "https://maps.google.com/?q=Legazpi+City"
+  },
+  "branding": {
+    "primary_color": "#f97316",
+    "accent_color": "#e11d48",
+    "bg_theme": "dark",
+    "vibe": "High-intensity athletic, modern industrial, bold"
+  },
+  "hours": {
+    "weekdays": "5:00 AM - 10:00 PM",
+    "weekends": "6:00 AM - 8:00 PM"
+  },
+  "pricing_plans": [
+    {
+      "name": "Day Pass",
+      "price": "₱150",
+      "period": "per session",
+      "features": ["Full gym floor access", "Locker & shower use", "Free WiFi"],
+      "popular": false
+    },
+    {
+      "name": "Monthly Pro",
+      "price": "₱1,500",
+      "period": "per month",
+      "features": ["Unlimited 24/7 access", "Free fitness assessment", "Locker & shower access", "1 Free Trainer Session"],
+      "popular": true
+    },
+    {
+      "name": "Annual VIP",
+      "price": "₱14,000",
+      "period": "per year",
+      "features": ["Unlimited annual access", "2 Free guest passes/mo", "Exclusive merch shirt", "Priority trainer booking"],
+      "popular": false
+    }
+  ],
+  "trainers": [
+    {
+      "name": "Coach Marcus Ramos",
+      "specialty": "Strength & Conditioning / Powerlifting",
+      "bio": "Certified strength coach with 8+ years coaching competitive athletes."
+    },
+    {
+      "name": "Coach Andrea Diaz",
+      "specialty": "HIIT & Functional Fitness",
+      "bio": "Passionate about transforming busy professionals into high-stamina movers."
+    }
+  ]
+}

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apex Iron Gym OS | Enterprise Management System</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    .font-mono { font-family: 'JetBrains Mono', monospace; }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col">
+
+  <!-- Top Navigation -->
+  <header class="border-b border-slate-800 bg-slate-900/60 sticky top-0 z-50 backdrop-blur">
+    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-orange-600 to-amber-500 flex items-center justify-center font-bold text-slate-950 shadow-lg shadow-orange-500/20">
+          <i class="fa-solid fa-dumbbell"></i>
+        </div>
+        <div>
+          <h1 class="text-sm font-bold text-white flex items-center gap-2">
+            Apex Iron <span class="px-2 py-0.5 rounded-full text-[10px] bg-orange-500/10 text-orange-400 border border-orange-500/20 font-semibold">Gym OS v3.0</span>
+          </h1>
+          <p class="text-[11px] text-slate-400">Old Albay District, Legazpi City</p>
+        </div>
+      </div>
+
+      <!-- Quick Action & Role Switcher -->
+      <div class="flex items-center gap-3">
+        <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-xs">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span class="text-slate-300 font-medium">Front Desk: Active</span>
+        </div>
+        <button onclick="openModal()" class="px-3.5 py-1.5 rounded-lg bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs shadow-lg shadow-orange-500/20 transition flex items-center gap-1.5">
+          <i class="fa-solid fa-plus"></i> Add Member
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-6 py-8 space-y-8 flex-1 w-full">
+
+    <!-- KPI Metric Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div class="p-5 rounded-2xl bg-slate-900/40 border border-slate-800">
+        <span class="text-xs text-slate-400 font-medium">Active Members</span>
+        <div class="text-2xl font-bold text-white mt-1" id="kpiActive">342</div>
+        <span class="text-[11px] text-emerald-400">&uarr; 12 new this month</span>
+      </div>
+      <div class="p-5 rounded-2xl bg-slate-900/40 border border-slate-800">
+        <span class="text-xs text-slate-400 font-medium">Checked-in Today</span>
+        <div class="text-2xl font-bold text-orange-400 mt-1" id="kpiCheckin">68</div>
+        <span class="text-[11px] text-slate-400">Peak hour: 5:00 PM - 8:00 PM</span>
+      </div>
+      <div class="p-5 rounded-2xl bg-slate-900/40 border border-slate-800">
+        <span class="text-xs text-slate-400 font-medium">Expiring in 7 Days</span>
+        <div class="text-2xl font-bold text-amber-400 mt-1" id="kpiExpiring">9</div>
+        <span class="text-[11px] text-amber-400/80">SMS reminder sent</span>
+      </div>
+      <div class="p-5 rounded-2xl bg-slate-900/40 border border-slate-800">
+        <span class="text-xs text-slate-400 font-medium">Today's Revenue</span>
+        <div class="text-2xl font-bold text-emerald-400 mt-1" id="kpiRevenue">₱7,450.00</div>
+        <span class="text-[11px] text-slate-400">Dues + Drinks/Supplements</span>
+      </div>
+    </div>
+
+    <!-- Main Workspace Tabs -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+      <!-- Column 1 & 2: Member Directory Table -->
+      <div class="lg:col-span-2 bg-slate-900/50 border border-slate-800 rounded-2xl p-6">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
+          <div>
+            <h2 class="text-base font-bold text-white">Member Directory</h2>
+            <p class="text-xs text-slate-400">Manage memberships, renew plans, and track attendance.</p>
+          </div>
+          <input type="text" id="searchInput" oninput="filterMembers()" placeholder="Search by name or ID..." class="w-full sm:w-64 bg-slate-950 border border-slate-700 rounded-lg px-3 py-1.5 text-xs text-white focus:outline-none focus:border-orange-500">
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead>
+              <tr class="border-b border-slate-800 text-slate-400 uppercase text-[10px] tracking-wider">
+                <th class="pb-3">Member ID</th>
+                <th class="pb-3">Name</th>
+                <th class="pb-3">Plan</th>
+                <th class="pb-3">Expires</th>
+                <th class="pb-3">Status</th>
+                <th class="pb-3 text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="memberTableBody" class="divide-y divide-slate-800/60">
+              <!-- Populated via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Column 3: Instant QR Check-In Scanner Station -->
+      <div class="space-y-6">
+        
+        <!-- QR Attendance Simulation Card -->
+        <div class="bg-slate-900/50 border border-slate-800 rounded-2xl p-6">
+          <h2 class="text-sm font-bold text-white flex items-center gap-2 mb-2">
+            <i class="fa-solid fa-qrcode text-orange-400"></i> QR Attendance Scanner
+          </h2>
+          <p class="text-xs text-slate-400 mb-4">Front desk fast pass: Scan or enter Member ID to verify.</p>
+
+          <div class="flex gap-2 mb-4">
+            <input type="text" id="scanInput" placeholder="e.g. APX-101" class="flex-1 bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-xs font-mono uppercase text-white focus:outline-none focus:border-orange-500">
+            <button onclick="handleScan()" class="px-4 py-2 bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs rounded-lg transition">Check In</button>
+          </div>
+
+          <div id="scanResult" class="hidden p-3 rounded-xl border text-xs"></div>
+
+          <div class="mt-6 border-t border-slate-800/80 pt-4">
+            <span class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider block mb-2">Recent Attendance Logs</span>
+            <ul id="logList" class="space-y-2 text-xs text-slate-300 font-mono">
+              <li class="flex items-center justify-between py-1 border-b border-slate-800/40">
+                <span>APX-101 (Juan Dela Cruz)</span>
+                <span class="text-slate-500 text-[10px]">6:42 PM</span>
+              </li>
+              <li class="flex items-center justify-between py-1 border-b border-slate-800/40">
+                <span>APX-103 (Bea Alonzo)</span>
+                <span class="text-slate-500 text-[10px]">6:15 PM</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- POS / Quick Cash Log -->
+        <div class="bg-slate-900/50 border border-slate-800 rounded-2xl p-6">
+          <h2 class="text-sm font-bold text-white mb-2">⚡ Quick Walk-in & POS Logger</h2>
+          <div class="space-y-2 text-xs">
+            <button onclick="logQuickSale(150, 'Walk-In Day Pass')" class="w-full py-2 px-3 rounded-lg bg-slate-950 border border-slate-800 hover:border-slate-700 text-left flex justify-between items-center transition">
+              <span>+ 1 Walk-In Day Pass</span>
+              <strong class="text-emerald-400">₱150.00</strong>
+            </button>
+            <button onclick="logQuickSale(90, 'Whey Protein Shake')" class="w-full py-2 px-3 rounded-lg bg-slate-950 border border-slate-800 hover:border-slate-700 text-left flex justify-between items-center transition">
+              <span>+ Whey Protein Shake</span>
+              <strong class="text-emerald-400">₱90.00</strong>
+            </button>
+            <button onclick="logQuickSale(35, 'Mineral Water 500ml')" class="w-full py-2 px-3 rounded-lg bg-slate-950 border border-slate-800 hover:border-slate-700 text-left flex justify-between items-center transition">
+              <span>+ Mineral Water 500ml</span>
+              <strong class="text-emerald-400">₱35.00</strong>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Modal: Add New Member -->
+  <div id="addModal" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-md w-full p-6 shadow-2xl">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-sm font-bold text-white">Enroll New Gym Member</h3>
+        <button onclick="closeModal()" class="text-slate-400 hover:text-white">&times;</button>
+      </div>
+
+      <div class="space-y-3 text-xs">
+        <div>
+          <label class="block text-slate-400 mb-1">Full Name</label>
+          <input type="text" id="newName" placeholder="e.g. Maria Santos" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-white">
+        </div>
+        <div>
+          <label class="block text-slate-400 mb-1">Contact Number (RA 10173 Protected)</label>
+          <input type="text" id="newPhone" placeholder="0917-xxx-xxxx" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-white">
+        </div>
+        <div>
+          <label class="block text-slate-400 mb-1">Membership Plan</label>
+          <select id="newPlan" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-white">
+            <option value="Monthly Pro">Monthly Pro (₱1,500/mo)</option>
+            <option value="Annual VIP">Annual VIP (₱14,000/yr)</option>
+            <option value="Student Special">Student Special (₱1,200/mo)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="mt-6 flex justify-end gap-2">
+        <button onclick="closeModal()" class="px-4 py-2 rounded-lg bg-slate-800 text-slate-300 text-xs">Cancel</button>
+        <button onclick="saveNewMember()" class="px-4 py-2 rounded-lg bg-orange-600 text-white font-bold text-xs">Enroll & Generate ID</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let members = [
+      { id: 'APX-101', name: 'Juan Dela Cruz', plan: 'Monthly Pro', expires: '2026-11-28', status: 'ACTIVE' },
+      { id: 'APX-102', name: 'Maria Makiling', plan: 'Monthly Pro', expires: '2026-11-10', status: 'EXPIRING' },
+      { id: 'APX-103', name: 'Bea Alonzo', plan: 'Annual VIP', expires: '2027-04-15', status: 'ACTIVE' },
+      { id: 'APX-104', name: 'Cardo Dalisay', plan: 'Monthly Pro', expires: '2026-10-31', status: 'EXPIRED' }
+    ];
+
+    let todayRevenue = 7450;
+    let todayCheckins = 68;
+
+    function renderMembers(list = members) {
+      const tbody = document.getElementById('memberTableBody');
+      tbody.innerHTML = '';
+
+      list.forEach(m => {
+        let badgeColor = 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20';
+        if (m.status === 'EXPIRING') badgeColor = 'bg-amber-500/10 text-amber-400 border-amber-500/20';
+        if (m.status === 'EXPIRED') badgeColor = 'bg-rose-500/10 text-rose-400 border-rose-500/20';
+
+        const tr = document.createElement('tr');
+        tr.className = 'hover:bg-slate-900/40';
+        tr.innerHTML = `
+          <td class="py-3 font-mono text-slate-400">${m.id}</td>
+          <td class="py-3 font-semibold text-white">${m.name}</td>
+          <td class="py-3 text-slate-300">${m.plan}</td>
+          <td class="py-3 text-slate-400">${m.expires}</td>
+          <td class="py-3">
+            <span class="px-2 py-0.5 rounded-full text-[10px] font-bold border ${badgeColor}">${m.status}</span>
+          </td>
+          <td class="py-3 text-right">
+            <button onclick="renewMember('${m.id}')" class="px-2 py-1 rounded bg-slate-800 hover:bg-slate-700 text-[11px] text-slate-200">Renew</button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function filterMembers() {
+      const q = document.getElementById('searchInput').value.toLowerCase();
+      const filtered = members.filter(m => m.name.toLowerCase().includes(q) || m.id.toLowerCase().includes(q));
+      renderMembers(filtered);
+    }
+
+    function handleScan() {
+      const id = document.getElementById('scanInput').value.trim().toUpperCase();
+      const resultBox = document.getElementById('scanResult');
+      resultBox.classList.remove('hidden');
+
+      const found = members.find(m => m.id === id);
+
+      if (!found) {
+        resultBox.className = 'p-3 rounded-xl border bg-rose-500/10 border-rose-500/20 text-rose-400 text-xs font-semibold';
+        resultBox.innerHTML = `❌ Member ID "${id}" not found in registry!`;
+        return;
+      }
+
+      if (found.status === 'EXPIRED') {
+        resultBox.className = 'p-3 rounded-xl border bg-rose-500/10 border-rose-500/20 text-rose-400 text-xs font-semibold';
+        resultBox.innerHTML = `⚠️ Access Denied: ${found.name}'s membership expired on ${found.expires}!`;
+        return;
+      }
+
+      resultBox.className = 'p-3 rounded-xl border bg-emerald-500/10 border-emerald-500/20 text-emerald-400 text-xs font-semibold';
+      resultBox.innerHTML = `✅ Access Granted: Welcome, ${found.name}! (${found.plan})`;
+
+      // Add to log
+      todayCheckins++;
+      document.getElementById('kpiCheckin').innerText = todayCheckins;
+      const logList = document.getElementById('logList');
+      const li = document.createElement('li');
+      li.className = 'flex items-center justify-between py-1 border-b border-slate-800/40 text-emerald-400';
+      li.innerHTML = `<span>${found.id} (${found.name})</span><span class="text-slate-500 text-[10px]">Just now</span>`;
+      logList.prepend(li);
+
+      document.getElementById('scanInput').value = '';
+    }
+
+    function logQuickSale(amount, item) {
+      todayRevenue += amount;
+      document.getElementById('kpiRevenue').innerText = `₱${todayRevenue.toLocaleString('en-US', { minimumFractionDigits: 2 })}`;
+      alert(`✅ Recorded sale: ${item} (+₱${amount})`);
+    }
+
+    function openModal() { document.getElementById('addModal').classList.remove('hidden'); }
+    function closeModal() { document.getElementById('addModal').classList.add('hidden'); }
+
+    function saveNewMember() {
+      const name = document.getElementById('newName').value.trim();
+      const plan = document.getElementById('newPlan').value;
+      if (!name) return alert('Please enter name');
+
+      const newId = `APX-${100 + members.length + 1}`;
+      members.push({
+        id: newId,
+        name: name,
+        plan: plan,
+        expires: '2026-12-07',
+        status: 'ACTIVE'
+      });
+
+      renderMembers();
+      closeModal();
+      alert(`🎉 Member enrolled! Assigned ID: ${newId}`);
+    }
+
+    function renewMember(id) {
+      const m = members.find(x => x.id === id);
+      if (m) {
+        m.status = 'ACTIVE';
+        m.expires = '2026-12-31';
+        renderMembers();
+        alert(`✅ Membership renewed for ${m.name}! New expiry: ${m.expires}`);
+      }
+    }
+
+    renderMembers();
+  </script>
+</body>
+</html>

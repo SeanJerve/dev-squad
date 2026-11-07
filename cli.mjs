@@ -277,6 +277,30 @@ function handleDashboard() {
   }
 }
 
+function handleGym(subcmd, arg) {
+  const engineDir = path.join(TOOL_DIR, 'agency', 'gym-engine');
+  if (subcmd === 'brief') {
+    const templatePath = path.join(engineDir, 'client-brief.template.json');
+    const dest = path.join(CWD, 'client-brief.json');
+    if (fs.existsSync(templatePath)) {
+      fs.copyFileSync(templatePath, dest);
+      console.log(`\n✅ Generated client brief template at: client-brief.json`);
+      console.log(`Fill out the client's information, then run: dev-squad gym build client-brief.json\n`);
+    } else {
+      console.log(`Template not found at: ${templatePath}`);
+    }
+  } else if (subcmd === 'build') {
+    const brief = arg || path.join(CWD, 'client-brief.json');
+    import('./agency/gym-engine/orchestrator.mjs').then(mod => {
+      mod.buildGymProject(brief);
+    });
+  } else {
+    console.log(`\nGym Agency Engine Commands:`);
+    console.log(`  dev-squad gym brief             Generate client-brief.json questionnaire`);
+    console.log(`  dev-squad gym build [brief.json] Autonomously build the client's website/system\n`);
+  }
+}
+
 function handleRefs() {
   const refPath = path.join(TOOL_DIR, 'REFERENCES.md');
   console.log(`\n📚 DEV-SQUAD Scientific & Engineering Reference Library`);
@@ -309,13 +333,14 @@ Commands:
   status               Display status of all features and compliance gates.
   dashboard            Launch the offline visual command dashboard in your browser.
   refs                 Show the scientific, legal, and industry references & bibliography.
+  gym <brief|build>    Autonomous Gym Agency Factory (build Tier 1/2/3 from a brief).
   help                 Display this help guide.
 
 Examples:
   dev-squad init
-  dev-squad new scholarship-tracker
+  dev-squad gym brief
+  dev-squad gym build client-brief.json
   dev-squad audit
-  dev-squad pitch scholarship-tracker
   dev-squad refs
 `);
 }
@@ -323,6 +348,9 @@ Examples:
 switch (command) {
   case 'init':
     handleInit(args[0]);
+    break;
+  case 'gym':
+    handleGym(args[0], args[1]);
     break;
   case 'new':
     handleNew(args[0]);

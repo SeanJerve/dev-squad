@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apex Iron Gym & Fitness (Dynamic CMS)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700;900&display=swap');
+    .font-heading { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.05em; }
+    body { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+<body class="bg-stone-950 text-stone-100 antialiased">
+
+  <!-- Dynamic Announcement Banner (Controlled from Admin) -->
+  <div id="dynamicBanner" class="hidden bg-gradient-to-r from-orange-600 to-rose-600 px-4 py-2 text-center text-xs font-bold text-white tracking-wide shadow-md">
+    <span id="bannerText">Special Announcement</span>
+  </div>
+
+  <!-- Header -->
+  <header class="border-b border-stone-800 bg-stone-950/90 backdrop-blur sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2">
+        <div class="w-10 h-10 rounded-lg bg-orange-500 flex items-center justify-center font-heading text-2xl text-stone-950">
+          <i class="fa-solid fa-dumbbell"></i>
+        </div>
+        <span class="font-heading text-3xl tracking-wider text-white">APEX <span class="text-orange-500">IRON</span></span>
+      </a>
+
+      <div class="flex items-center gap-4">
+        <a href="#pricing" class="px-5 py-2.5 rounded-full bg-orange-500 hover:bg-orange-600 text-stone-950 font-bold text-xs uppercase tracking-wider transition">
+          Join Now
+        </a>
+        <a href="admin.html" target="_blank" class="px-3 py-1.5 rounded-lg bg-stone-800 hover:bg-stone-700 text-stone-300 text-xs flex items-center gap-1.5 transition">
+          <i class="fa-solid fa-lock"></i> Owner Portal
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="py-20 px-6 max-w-7xl mx-auto text-center">
+    <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/30 text-orange-400 text-xs font-semibold uppercase tracking-wider mb-6">
+      Live Dynamic Gym Website
+    </span>
+    <h1 class="font-heading text-6xl sm:text-7xl text-white mb-6">
+      FORGE YOUR ULTIMATE <span class="text-orange-500">POTENTIAL</span>.
+    </h1>
+    <p class="max-w-xl mx-auto text-stone-400 text-sm mb-8 leading-relaxed">
+      Equipped with heavy powerlifting platforms, high-octane cardio machines, and dedicated certified coaches.
+    </p>
+  </section>
+
+  <!-- Dynamic Pricing Cards -->
+  <section id="pricing" class="py-16 px-6 max-w-7xl mx-auto border-t border-stone-800/80">
+    <div class="text-center max-w-xl mx-auto mb-12">
+      <h2 class="font-heading text-4xl text-white">CHOOSE YOUR PASS</h2>
+      <p class="text-stone-400 text-xs mt-1">Live membership pricing managed directly from the owner portal.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="rounded-2xl bg-stone-900 border border-stone-800 p-6 flex flex-col justify-between">
+        <div>
+          <h3 class="font-heading text-2xl text-white">WALK-IN DAY PASS</h3>
+          <div class="mt-4 mb-4">
+            <span id="displayPrice1" class="text-4xl font-extrabold text-white">₱150</span>
+            <span id="displayPeriod1" class="text-xs text-stone-400">/ session</span>
+          </div>
+          <p class="text-xs text-stone-400">Perfect for tourists, guests, or trying out the equipment.</p>
+        </div>
+        <button class="mt-6 w-full py-2.5 rounded-xl bg-stone-800 hover:bg-stone-700 text-xs font-bold text-white transition">Select Pass</button>
+      </div>
+
+      <div class="rounded-2xl bg-stone-900 border-2 border-orange-500 p-6 flex flex-col justify-between relative shadow-xl shadow-orange-500/10">
+        <span class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-orange-500 text-stone-950 font-bold text-[10px] uppercase">
+          RECOMMENDED
+        </span>
+        <div>
+          <h3 class="font-heading text-2xl text-white">MONTHLY PRO</h3>
+          <div class="mt-4 mb-4">
+            <span id="displayPrice2" class="text-4xl font-extrabold text-orange-400">₱1,500</span>
+            <span id="displayPeriod2" class="text-xs text-stone-400">/ month</span>
+          </div>
+          <p class="text-xs text-stone-400">Unlimited daily access + free assessment and orientation.</p>
+        </div>
+        <button class="mt-6 w-full py-2.5 rounded-xl bg-orange-500 hover:bg-orange-600 text-xs font-bold text-stone-950 transition">Join Monthly</button>
+      </div>
+
+      <div class="rounded-2xl bg-stone-900 border border-stone-800 p-6 flex flex-col justify-between">
+        <div>
+          <h3 class="font-heading text-2xl text-white">ANNUAL VIP</h3>
+          <div class="mt-4 mb-4">
+            <span id="displayPrice3" class="text-4xl font-extrabold text-white">₱14,000</span>
+            <span id="displayPeriod3" class="text-xs text-stone-400">/ year</span>
+          </div>
+          <p class="text-xs text-stone-400">Committed fitness enthusiasts with guest privileges.</p>
+        </div>
+        <button class="mt-6 w-full py-2.5 rounded-xl bg-stone-800 hover:bg-stone-700 text-xs font-bold text-white transition">Claim VIP</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dynamic Hours Display -->
+  <section class="py-12 px-6 max-w-7xl mx-auto border-t border-stone-800/80 text-center text-xs text-stone-400">
+    <div id="displayHoursWeekday" class="font-medium text-stone-300">Monday - Saturday: 5:00 AM - 10:00 PM</div>
+    <div id="displayHoursWeekend" class="mt-1">Sunday: 6:00 AM - 8:00 PM</div>
+  </section>
+
+  <script>
+    const STORAGE_KEY = 'APEX_GYM_CMS_DATA';
+
+    function loadLiveContent() {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        try {
+          const d = JSON.parse(saved);
+          if (d.bannerActive) {
+            document.getElementById('dynamicBanner').classList.remove('hidden');
+            document.getElementById('bannerText').innerText = d.bannerText;
+          } else {
+            document.getElementById('dynamicBanner').classList.add('hidden');
+          }
+          if (d.price1) document.getElementById('displayPrice1').innerText = d.price1;
+          if (d.period1) document.getElementById('displayPeriod1').innerText = `/ ${d.period1}`;
+          if (d.price2) document.getElementById('displayPrice2').innerText = d.price2;
+          if (d.period2) document.getElementById('displayPeriod2').innerText = `/ ${d.period2}`;
+          if (d.price3) document.getElementById('displayPrice3').innerText = d.price3;
+          if (d.period3) document.getElementById('displayPeriod3').innerText = `/ ${d.period3}`;
+          if (d.hoursWeekday) document.getElementById('displayHoursWeekday').innerText = d.hoursWeekday;
+          if (d.hoursWeekend) document.getElementById('displayHoursWeekend').innerText = d.hoursWeekend;
+        } catch(e) {}
+      }
+    }
+
+    loadLiveContent();
+  </script>
+</body>
+</html>

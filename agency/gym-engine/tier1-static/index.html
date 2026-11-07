@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apex Iron Gym & Fitness | Premier Training Facility</title>
+  <meta name="description" content="Legazpi City's premier athletic gym. Free weights, functional turf, certified coaching, and flexible memberships. Join today.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: '#f97316',
+            brandDark: '#c2410c'
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700;900&display=swap');
+    .font-heading { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.05em; }
+    body { font-family: 'Inter', sans-serif; }
+  </style>
+  <!-- Local Business Schema for Local SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "GymOrFitnessCenter",
+    "name": "Apex Iron Gym & Fitness",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rizal St., Old Albay District",
+      "addressLocality": "Legazpi City",
+      "addressRegion": "Albay",
+      "addressCountry": "PH"
+    },
+    "telephone": "+639171234567",
+    "openingHours": "Mo-Su 05:00-22:00",
+    "priceRange": "₱150 - ₱14,000"
+  }
+  </script>
+</head>
+<body class="bg-stone-950 text-stone-100 antialiased selection:bg-brand selection:text-white">
+
+  <!-- Sticky Navbar -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-stone-950/80 backdrop-blur-md border-b border-stone-800">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2">
+        <div class="w-10 h-10 rounded-lg bg-brand flex items-center justify-center font-heading text-2xl text-stone-950">
+          <i class="fa-solid fa-dumbbell"></i>
+        </div>
+        <span class="font-heading text-3xl tracking-wider text-white">APEX <span class="text-brand">IRON</span></span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-stone-300">
+        <a href="#about" class="hover:text-brand transition">About</a>
+        <a href="#classes" class="hover:text-brand transition">Schedule</a>
+        <a href="#pricing" class="hover:text-brand transition">Membership</a>
+        <a href="#trainers" class="hover:text-brand transition">Trainers</a>
+        <a href="#contact" class="hover:text-brand transition">Location</a>
+      </nav>
+
+      <div class="flex items-center gap-4">
+        <a href="#pricing" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-brand hover:bg-brandDark text-stone-950 font-bold text-sm tracking-wide transition shadow-lg shadow-brand/20">
+          JOIN NOW
+        </a>
+        <button id="mobileMenuBtn" class="md:hidden text-stone-300 hover:text-white text-2xl">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative min-h-screen flex items-center pt-24 pb-16 px-6 overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1920&auto=format&fit=crop" class="w-full h-full object-cover opacity-25 filter grayscale" alt="Gym workout floor">
+      <div class="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/70 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-stone-950 via-transparent to-stone-950/40"></div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto w-full">
+      <div class="max-w-2xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand/10 border border-brand/30 text-brand text-xs font-semibold uppercase tracking-wider mb-6">
+          <span class="w-2 h-2 rounded-full bg-brand animate-ping"></span>
+          Legazpi City's Premier Fitness Center
+        </div>
+        <h1 class="font-heading text-6xl sm:text-7xl lg:text-8xl text-white leading-none mb-6">
+          BUILD YOUR <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand to-amber-400">STRONGEST</span> SELF.
+        </h1>
+        <p class="text-lg text-stone-300 mb-8 leading-relaxed font-light">
+          State-of-the-art iron, functional turf, powerlifting platforms, and dedicated elite coaches. No excuses. Only results.
+        </p>
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+          <a href="#pricing" class="px-8 py-4 rounded-xl bg-brand hover:bg-brandDark text-stone-950 font-bold text-center tracking-wider transition shadow-xl shadow-brand/25">
+            CLAIM 1-DAY PASS &bull; ₱150
+          </a>
+          <a href="#contact" class="px-8 py-4 rounded-xl bg-stone-900/80 hover:bg-stone-800 border border-stone-700 text-white font-semibold text-center transition">
+            <i class="fa-solid fa-location-dot mr-2 text-brand"></i> Visit Facility
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Proof & Stats Counter -->
+  <section class="border-y border-stone-800 bg-stone-900/40 py-12 px-6">
+    <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <div>
+        <div class="font-heading text-5xl text-brand mb-1">500+</div>
+        <div class="text-xs uppercase text-stone-400 font-semibold tracking-wider">Active Members</div>
+      </div>
+      <div>
+        <div class="font-heading text-5xl text-white mb-1">100%</div>
+        <div class="text-xs uppercase text-stone-400 font-semibold tracking-wider">Air-Conditioned</div>
+      </div>
+      <div>
+        <div class="font-heading text-5xl text-brand mb-1">45+</div>
+        <div class="text-xs uppercase text-stone-400 font-semibold tracking-wider">Workout Stations</div>
+      </div>
+      <div>
+        <div class="font-heading text-5xl text-white mb-1">6 AM - 10 PM</div>
+        <div class="text-xs uppercase text-stone-400 font-semibold tracking-wider">Daily Access</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Plans -->
+  <section id="pricing" class="py-24 px-6 max-w-7xl mx-auto">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <span class="text-xs font-semibold text-brand uppercase tracking-widest">Transparent Rates</span>
+      <h2 class="font-heading text-5xl text-white mt-2">MEMBERSHIP TIERS</h2>
+      <p class="text-stone-400 text-sm mt-3">No hidden registration fees. Upgrade or cancel anytime.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+      
+      <!-- Plan 1 -->
+      <div class="rounded-3xl bg-stone-900/50 border border-stone-800 p-8 flex flex-col justify-between hover:border-stone-700 transition">
+        <div>
+          <span class="text-xs font-semibold text-stone-400 uppercase tracking-wider">Walk-In</span>
+          <h3 class="font-heading text-3xl text-white mt-1">DAY PASS</h3>
+          <div class="mt-4 mb-6">
+            <span class="text-4xl font-extrabold text-white">₱150</span>
+            <span class="text-xs text-stone-400">/ session</span>
+          </div>
+          <ul class="space-y-3 text-sm text-stone-300">
+            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand"></i> Full gym floor access</li>
+            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand"></i> Locker & hot shower use</li>
+            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand"></i> High-speed WiFi access</li>
+          </ul>
+        </div>
+        <a href="#contact" class="mt-8 block w-full py-3 rounded-xl bg-stone-800 hover:bg-stone-700 text-center text-sm font-bold text-white transition">Get Started</a>
+      </div>
+
+      <!-- Plan 2 (Popular) -->
+      <div class="rounded-3xl bg-stone-900 border-2 border-brand p-8 flex flex-col justify-between relative shadow-2xl shadow-brand/10 transform lg:-translate-y-2">
+        <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-brand text-stone-950 font-bold text-xs uppercase tracking-wider">
+          MOST POPULAR
+        </div>
+        <div>
+          <span class="text-xs font-semibold text-brand uppercase tracking-wider">Best Value</span>
+          <h3 class="font-heading text-3xl text-white mt-1">MONTHLY PRO</h3>
+          <div class="mt-4 mb-6">
+            <span class="text-4xl font-extrabold text-white">₱1,500</span>
+            <span class="text-xs text-stone-400">/ month</span>
+          </div>
+          <ul class="space-y-3 text-sm text-stone-300">
+            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand"></i> Unlimited daily access</li>
+            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand"></i> 1 Free Personal Coach Consultation</li>
+            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand"></i> Body composition analysis</li>
+            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand"></i> Priority locker room access</li>
+          </ul>
+        </div>
+        <a href="#contact" class="mt-8 block w-full py-3.5 rounded-xl bg-brand hover:bg-brandDark text-center text-sm font-bold text-stone-950 transition shadow-lg shadow-brand/20">Claim Membership</a>
+      </div>
+
+      <!-- Plan 3 -->
+      <div class="rounded-3xl bg-stone-900/50 border border-stone-800 p-8 flex flex-col justify-between hover:border-stone-700 transition">
+        <div>
+          <span class="text-xs font-semibold text-stone-400 uppercase tracking-wider">Long Term</span>
+          <h3 class="font-heading text-3xl text-white mt-1">ANNUAL VIP</h3>
+          <div class="mt-4 mb-6">
+            <span class="text-4xl font-extrabold text-white">₱14,000</span>
+            <span class="text-xs text-stone-400">/ year (Save ₱4k)</span>
+          </div>
+          <ul class="space-y-3 text-sm text-stone-300">
+            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand"></i> Unlimited 365-day access</li>
+            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand"></i> Free gym gear & merchandise shirt</li>
+            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand"></i> 2 Free guest passes every month</li>
+            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand"></i> 10% off on protein shake bar</li>
+          </ul>
+        </div>
+        <a href="#contact" class="mt-8 block w-full py-3 rounded-xl bg-stone-800 hover:bg-stone-700 text-center text-sm font-bold text-white transition">Choose Annual</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Location & Hours Section -->
+  <section id="contact" class="py-20 px-6 bg-stone-900/40 border-t border-stone-800">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <span class="text-xs font-semibold text-brand uppercase tracking-wider">Visit Us Today</span>
+        <h2 class="font-heading text-5xl text-white mt-2 mb-6">LOCATION & HOURS</h2>
+        <div class="space-y-6 text-sm text-stone-300">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-lg bg-stone-800 flex items-center justify-center text-brand text-lg shrink-0">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <div>
+              <strong class="text-white block">Gym Address:</strong>
+              Rizal St., Old Albay District, Legazpi City, 4500 Albay, Philippines
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-lg bg-stone-800 flex items-center justify-center text-brand text-lg shrink-0">
+              <i class="fa-solid fa-clock"></i>
+            </div>
+            <div>
+              <strong class="text-white block">Operating Schedule:</strong>
+              Monday &ndash; Saturday: 5:00 AM &ndash; 10:00 PM<br>
+              Sunday: 6:00 AM &ndash; 8:00 PM
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-lg bg-stone-800 flex items-center justify-center text-brand text-lg shrink-0">
+              <i class="fa-solid fa-phone"></i>
+            </div>
+            <div>
+              <strong class="text-white block">Inquiries / Booking:</strong>
+              +63 917 123 4567 &bull; contact@apexirongym.ph
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Map Mock / Direction Card -->
+      <div class="rounded-3xl border border-stone-800 overflow-hidden bg-stone-900 p-8 text-center flex flex-col items-center justify-center min-h-[350px]">
+        <div class="w-16 h-16 rounded-full bg-brand/10 border border-brand/30 flex items-center justify-center text-brand text-3xl mb-4">
+          <i class="fa-solid fa-map-location-dot"></i>
+        </div>
+        <h3 class="font-heading text-3xl text-white">FIND US IN LEGAZPI CITY</h3>
+        <p class="text-xs text-stone-400 max-w-sm mt-2 mb-6">Located right along Rizal Street, opposite Albay Astrodome. Free parking available for members.</p>
+        <a href="https://maps.google.com" target="_blank" class="px-6 py-3 rounded-xl bg-stone-800 hover:bg-stone-700 border border-stone-700 text-white font-bold text-xs uppercase tracking-wider transition">
+          Open in Google Maps &rarr;
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-stone-800/80 py-10 px-6 text-center text-xs text-stone-500">
+    <p>&copy; 2026 Apex Iron Gym & Fitness. All rights reserved.</p>
+    <p class="mt-1">Crafted with high performance by <a href="#" class="text-brand hover:underline">Sean Jerve Web Studio</a>.</p>
+  </footer>
+
+</body>
+</html>
