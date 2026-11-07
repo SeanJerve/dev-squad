@@ -145,3 +145,22 @@ When your DOST supervisor, lead engineer, or a commercial client asks:
 
 You can confidently answer:
 > *"We based our development lifecycle on **Spec-Driven Development** (documented by GitHub and Anthropic's agent architecture guidelines), combined with **OWASP ASVS** and **Philippine Data Privacy Act (RA 10173)** technical safeguards. Every requirement is documented as a contract first, implemented with clean service-layer separation, and audited for security before committing."*
+
+---
+
+## Tier 7: International ISO/IEC Standards & Generative Engine Optimization (GEO)
+
+### 1. ISO/IEC 25010:2023 (Software Product Quality Model - SQuaRE)
+* **Standard:** Systems and software engineering — Software product quality model (Updated 2023).
+* **The 9 Quality Characteristics:** Functional Suitability, Performance Efficiency, Compatibility, Interaction Capability, Reliability, Security, Maintainability, Flexibility, and Safety.
+* **Application in Suite:** Governs the backend architecture, service boundaries, and system robustness checks of @backend-god and @architect.
+
+### 2. ISO/IEC 27001:2022 & ISO/IEC 27701:2019 (ISMS & PIMS)
+* **Standard:** Information Security Management Systems (ISMS) & Privacy Information Management Systems (PIMS).
+* **Application in Suite:** Technological controls for identity management, cryptographic standards (Argon2id/TLS 1.3), data minimization, dynamic PII masking, and data retention compliance.
+
+### 3. GEO: Generative Engine Optimization (KDD '24)
+* **Authors:** Pranjal Aggarwal, Vishvak Murahari, Tanmay Rajpurohit, Ashwin Kalyan, Karthik Narasimhan, Ameet Deshpande (Princeton University & IIT Delhi, 2024)
+* **ArXiv Citation:** https://arxiv.org/abs/2311.09735
+* **Application in Suite:** Content and schema optimization ensuring business properties are cited and recommended by AI engines (ChatGPT Search, Perplexity, Google AI Overviews) up to 40% more often.
+
