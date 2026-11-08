@@ -11,6 +11,8 @@ import readline from 'readline';
 import { fileURLToPath } from 'url';
 import { execSync } from 'child_process';
 import { scanCodebase } from './scanner.mjs';
+import { packageSingleSkill, packageAllSkills } from './packager.mjs';
+import { startDevServer } from './server.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -277,7 +279,7 @@ function handleDashboard() {
   }
 }
 
-function handleGym(subcmd, arg) {
+function handleGym(subcmd, arg1, arg2, arg3) {
   const engineDir = path.join(TOOL_DIR, 'agency', 'gym-engine');
   if (subcmd === 'brief') {
     const templatePath = path.join(engineDir, 'client-brief.template.json');
@@ -290,14 +292,22 @@ function handleGym(subcmd, arg) {
       console.log(`Template not found at: ${templatePath}`);
     }
   } else if (subcmd === 'build') {
-    const brief = arg || path.join(CWD, 'client-brief.json');
+    const brief = arg1 || path.join(CWD, 'client-brief.json');
     import('./agency/gym-engine/orchestrator.mjs').then(mod => {
       mod.buildGymProject(brief);
     });
+  } else if (subcmd === 'proposal') {
+    const biz = arg1 || 'Legazpi Iron Gym';
+    const owner = arg2 || 'Club Owner';
+    const tier = arg3 || 'tier1';
+    import('./agency/gym-engine/orchestrator.mjs').then(mod => {
+      mod.generateProposal(biz, owner, tier);
+    });
   } else {
     console.log(`\nGym Agency Engine Commands:`);
-    console.log(`  dev-squad gym brief             Generate client-brief.json questionnaire`);
-    console.log(`  dev-squad gym build [brief.json] Autonomously build the client's website/system\n`);
+    console.log(`  dev-squad gym brief                           Generate client-brief.json questionnaire`);
+    console.log(`  dev-squad gym build [brief.json]              Autonomously build the client's website/system`);
+    console.log(`  dev-squad gym proposal [biz] [owner] [tier]   Generate printable commercial client proposal\n`);
   }
 }
 
@@ -319,6 +329,37 @@ function handleRefs() {
   }
 }
 
+function handlePackage(skillName) {
+  banner();
+  console.log(`📦 Packaging DEV-SQUAD Skills for Agensi.io & Cross-Agent Marketplaces...\n`);
+  try {
+    if (skillName && skillName !== '--all') {
+      const res = packageSingleSkill(skillName, TOOL_DIR);
+      console.log(`✅ Packaged skill: ${res.skillName} ($${res.price_usd})`);
+      console.log(`   Directory: ${res.dir}`);
+      console.log(`   ZIP Archive: ${res.zip || 'N/A'}\n`);
+    } else {
+      const results = packageAllSkills(TOOL_DIR);
+      console.log(`✅ Successfully packaged ${results.length} marketplace skills:\n`);
+      for (const res of results) {
+        console.log(` • [${res.skillName}] $${res.price_usd} USD`);
+        console.log(`   Target: ${res.zip ? 'ZIP Built' : 'Directory Ready'}`);
+      }
+      console.log(`\n🎉 Distribution bundles ready in: ${path.join(TOOL_DIR, 'dist', 'marketplace')}\n`);
+    }
+  } catch (err) {
+    console.error(`❌ Packaging error: ${err.message}`);
+  }
+}
+
+function handleServe(portArg) {
+  const port = parseInt(portArg || '3333', 10);
+  startDevServer(port);
+  try {
+    execSync(`powershell Start-Process "http://localhost:${port}/dashboard"`);
+  } catch {}
+}
+
 function showHelp() {
   banner();
   console.log(`Usage:
@@ -330,6 +371,8 @@ Commands:
   new <feature-name>   Scaffold a new feature with spec, plan, and audit gates.
   audit [path]         Run automated OWASP & Data Privacy (RA 10173/GDPR) security scan.
   pitch <feature-name> Generate an audience-tailored 2-minute spoken demo script.
+  package [skill|--all] Bundle skills into Agensi.io / Claude / Cursor distribution packages.
+  serve [port]         Start local visual command server & API (default port: 3333).
   status               Display status of all features and compliance gates.
   dashboard            Launch the offline visual command dashboard in your browser.
   refs                 Show the scientific, legal, and industry references & bibliography.
@@ -338,6 +381,8 @@ Commands:
 
 Examples:
   dev-squad init
+  dev-squad package --all
+  dev-squad serve
   dev-squad gym brief
   dev-squad gym build client-brief.json
   dev-squad audit
@@ -350,7 +395,7 @@ switch (command) {
     handleInit(args[0]);
     break;
   case 'gym':
-    handleGym(args[0], args[1]);
+    handleGym(args[0], args[1], args[2], args[3]);
     break;
   case 'new':
     handleNew(args[0]);
@@ -361,6 +406,12 @@ switch (command) {
     break;
   case 'pitch':
     handlePitch(args[0]);
+    break;
+  case 'package':
+    handlePackage(args[0]);
+    break;
+  case 'serve':
+    handleServe(args[0]);
     break;
   case 'status':
     handleStatus();

@@ -1,0 +1,43 @@
+---
+description: Universal Spec-Driven Development (SDD) Agent Harness
+globs: *
+alwaysApply: true
+---
+
+# Universal Spec-Driven Development (SDD) Agent Harness
+Enforces rigorous Spec-Driven Development on any AI coding agent. Stops AI hallucinations, generates ERDs and API contracts before coding, and enforces defensive testing.
+
+## Core Rules & Execution Directives
+---
+name: sdd-pipeline
+description: >-
+  Universal Spec-Driven Development (SDD) engineering pipeline. Use across DOST Region V,
+  enterprise, and client web projects to design architectures, conduct security audits,
+  and generate pitch-perfect handover presentations.
+---
+
+# Universal Spec-Driven Development (SDD) Pipeline
+
+Apply this 5-stage pipeline across any web development project:
+
+1. **Stage 1 - Specify (`@spec`):**
+   - Interrogate requirements, user stories, acceptance criteria, and edge cases.
+   - Output to `spec.md`.
+
+2. **Stage 2 - Architect (`@architect`):**
+   - Produce normalized relational schemas (SQL/ORM), API contracts, and folder structure.
+   - Output to `plan.md`.
+
+3. **Stage 3 - Build (`@builder`):**
+   - Implement sequentially in small, testable increments.
+   - Enforce separation of concerns and type-safety.
+
+4. **Stage 4 - Audit (`@auditor`):**
+   - Audit code for OWASP Top 10 vulnerabilities (SQLi, XSS, CSRF).
+   - If government/DOST: verify compliance with RA 10173 (PII masking).
+   - If commercial: verify GDPR/rate-limiting/error masking.
+
+5. **Stage 5 - Ship & Pitch (`@scribe`):**
+   - Conventional Commits (`feat:`, `fix:`, `refactor:`, `docs:`).
+   - 2-minute elevator pitch for the client or supervisor.
+

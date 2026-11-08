@@ -15,9 +15,12 @@ Built on research from **Princeton University (SWE-bench & ReAct)**, **Anthropic
 ## 🌟 Core Features
 
 * 📜 **Spec-Driven Development (SDD):** Define unambiguous specification contracts (`spec.md`) and architectural plans (`plan.md`) before writing any code.
+* 📦 **Cross-Agent Marketplace Packager:** Package SDD skills into ready-to-sell or installable bundles for **Agensi.io**, **Claude Code** (`CLAUDE.md`), **Cursor** (`.cursorrules` & `.mdc`), **GitHub Copilot**, and **Windsurf**.
+* 🌐 **Local Command Server & API:** Instant zero-dependency Node.js HTTP server (`dev-squad serve`) serving live telemetry, dashboards, and client previews at `http://localhost:3333`.
 * 🛡️ **Automated Security & Privacy Scanner:** Scans your codebase for SQL injection risks, hardcoded secrets, weak cryptographic hashes, and unmasked PII.
+* 🏋️ **Autonomous Gym Agency Engine:** Complete 3-tier client website and Gym OS SaaS generator (`dev-squad gym brief` & `dev-squad gym build`).
 * 🎙️ **Automated Demo Pitch Generator:** Automatically converts your feature specifications into crisp 2-minute elevator pitches for supervisors and clients.
-* 🌐 **Offline Visual Command Dashboard:** Zero-dependency, single-file HTML dashboard with a live spec generator, compliance calculator, and defense flashcards.
+* 📱 **Remote Pilot Bridge:** Zero-latency Telegram bot bridge (`dev-pilot`) that lets you control your development machine, run audits, and query AI directly from your phone.
 * 🔌 **Pluggable Multi-Profile Engine:**
   * `commercial-client` — Freelance & SME projects (Payments, SEO, client sign-off).
   * `fullstack-saas` — Modern SaaS (Next.js, TypeScript, type-safety, optimistic UI).
@@ -52,13 +55,20 @@ dev-squad new user-authentication
 # 3. Scan codebase for OWASP & privacy vulnerabilities
 dev-squad audit
 
-# 4. Generate a 2-minute spoken demo script for code reviews
+# 4. Start local command server & preview environment (http://localhost:3333)
+dev-squad serve
+
+# 5. Package skills for Claude Code, Cursor, or Agensi.io marketplace
+dev-squad package --all
+
+# 6. Autonomously build a 3-tier gym website & SaaS from a client brief
+dev-squad gym brief
+dev-squad gym build client-brief.json
+
+# 7. Generate a 2-minute spoken demo script for code reviews
 dev-squad pitch user-authentication
 
-# 5. Open the visual command center in your browser
-dev-squad dashboard
-
-# 6. View the scientific research papers and legal foundations
+# 8. View the scientific research papers and legal foundations
 dev-squad refs
 ```
 

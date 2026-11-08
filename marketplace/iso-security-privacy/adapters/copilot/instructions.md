@@ -1,0 +1,49 @@
+# GitHub Copilot Custom Instructions
+
+---
+name: iso-security-privacy
+description: >-
+  Enterprise cybersecurity and privacy compliance based on ISO/IEC 27001:2022 (ISMS),
+  ISO/IEC 27701:2019 (PIMS), OWASP ASVS 4.0 Level 2, and Philippine RA 10173.
+  Use when conducting security audits, configuring authorization gates, handling sensitive PII,
+  designing cryptographic storage, and preventing web application vulnerabilities.
+---
+
+# ISO/IEC 27001:2022 & 27701:2019 Security & Privacy Standard
+
+A comprehensive security verification skill combining international ISO/IEC controls with the **Philippine Data Privacy Act (RA 10173)** and **OWASP ASVS 4.0**.
+
+---
+
+## 1. ISO/IEC 27001:2022 Technological Controls (Annex A)
+
+Every web application and API must implement the following ISO/IEC 27001:2022 controls:
+
+### A.8.2 Access Control & Identity Verification
+* **Principle of Least Privilege:** Users operate with minimal permissions needed for their role.
+* **Server-Side Enforcement:** Never trust role claims sent from client JavaScript state. Verify permissions on every API request.
+* **Session Invalidation:** Sessions must immediately terminate on logout or password change.
+
+### A.8.24 Use of Cryptography
+* **Password Storage:** Passwords must be hashed using **Argon2id** (memory: 64MB, iterations: 3) or **bcrypt** (cost factor &ge; 12).
+* **Data in Transit:** All traffic must enforce HTTPS with **TLS 1.3** and HSTS headers (`Strict-Transport-Security: max-age=31536000; includeSubDomains`).
+* **Sensitive Data at Rest:** AES-256-GCM encryption for stored API tokens, OAuth refresh tokens, and credit card gateway credentials.
+
+### A.8.26 Application Security Requirements (OWASP ASVS 4.0 Alignment)
+* **SQL Injection (ASVS V5.3):** Zero raw string concatenation in SQL queries. Parameterized bindings / ORM prepared statements only.
+* **Cross-Site Scripting (ASVS V5.2):** Strict output encoding and Content-Security-Policy (CSP Level 3). Rich text sanitized via DOMPurify.
+* **Cross-Site Request Forgery (ASVS V4.2):** SameSite=Lax/Strict HTTP-only cookies and CSRF tokens for state-changing endpoints.
+
+---
+
+## 2. ISO/IEC 27701:2019 Privacy Information Management (PIMS) & RA 10173
+
+Mapped to the **Philippine Data Privacy Act of 2012 (RA 10173)**:
+
+1. **PII Minimization (Section 11):** Only collect fields strictly required for service delivery. Never ask for national IDs or phone numbers without functional necessity.
+2. **Dynamic PII Masking (Section 20):**
+   * Phone numbers displayed as `0917****567` for standard viewers.
+   * PhilSys / National IDs displayed as `****-****-1234`.
+   * Unmasked data accessible only to verified Admin roles with audit logging.
+3. **Zero PII Logging:** Never write passwords, credit card tokens, phone numbers, or national IDs to `console.log()` or server error logs.
+4. **Data Portability & Right to Erasure:** Provide clean export (JSON/CSV) and account deletion endpoints that purge user records according to statutory retention limits.

@@ -1,0 +1,40 @@
+{
+  "manifest_version": "1.0",
+  "id": "seanjerve/sdd-pipeline",
+  "name": "sdd-pipeline",
+  "title": "Universal Spec-Driven Development (SDD) Agent Harness",
+  "version": "1.0.0",
+  "description": "Enforces rigorous Spec-Driven Development on any AI coding agent. Stops AI hallucinations, generates ERDs and API contracts before coding, and enforces defensive testing.",
+  "author": "Sean Jerve (https://github.com/SeanJerve)",
+  "category": "Engineering Architecture & Workflow",
+  "pricing": {
+    "type": "paid",
+    "amount_usd": 19,
+    "currency": "USD"
+  },
+  "supported_agents": [
+    "Claude Code",
+    "Cursor",
+    "GitHub Copilot",
+    "Windsurf",
+    "Antigravity",
+    "Aider"
+  ],
+  "tags": [
+    "spec-driven-development",
+    "claude-code",
+    "cursor",
+    "copilot",
+    "architecture",
+    "anti-hallucination"
+  ],
+  "entrypoints": {
+    "antigravity": "SKILL.md",
+    "cursor": "adapters/cursor/.cursorrules",
+    "cursor_rules": "adapters/cursor/rules/sdd-pipeline.mdc",
+    "claude": "adapters/claude/CLAUDE.md",
+    "copilot": "adapters/copilot/instructions.md",
+    "windsurf": "adapters/windsurf/.windsurfrules"
+  },
+  "created_at": "2026-11-08T00:57:37.508Z"
+}

@@ -1,0 +1,37 @@
+{
+  "manifest_version": "1.0",
+  "id": "seanjerve/design-engineer-taste",
+  "name": "design-engineer-taste",
+  "title": "Design Engineering Taste & Anti-AI Slop Heuristics",
+  "version": "1.0.0",
+  "description": "Craftsmanship rules that prevent generic AI design. Enforces optical hierarchy, consistent spatial scales, bespoke typography pairings, and tactile micro-states.",
+  "author": "Sean Jerve (https://github.com/SeanJerve)",
+  "category": "Design Engineering",
+  "pricing": {
+    "type": "paid",
+    "amount_usd": 15,
+    "currency": "USD"
+  },
+  "supported_agents": [
+    "Claude Code",
+    "Cursor",
+    "Copilot",
+    "Antigravity"
+  ],
+  "tags": [
+    "design-systems",
+    "typography",
+    "tailwind",
+    "craftsmanship",
+    "anti-slop"
+  ],
+  "entrypoints": {
+    "antigravity": "SKILL.md",
+    "cursor": "adapters/cursor/.cursorrules",
+    "cursor_rules": "adapters/cursor/rules/design-engineer-taste.mdc",
+    "claude": "adapters/claude/CLAUDE.md",
+    "copilot": "adapters/copilot/instructions.md",
+    "windsurf": "adapters/windsurf/.windsurfrules"
+  },
+  "created_at": "2026-11-08T00:57:34.631Z"
+}

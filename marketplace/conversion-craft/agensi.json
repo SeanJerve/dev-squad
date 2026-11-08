@@ -1,0 +1,38 @@
+{
+  "manifest_version": "1.0",
+  "id": "seanjerve/conversion-craft",
+  "name": "conversion-craft",
+  "title": "Conversion Rate Optimization (CRO) & Local Business Architecture",
+  "version": "1.0.0",
+  "description": "High-converting layout and copy architecture for service businesses and gyms. Enforces 3-second hook heuristics, pricing tier matrices, mobile thumb-zones, and friction-free CTAs.",
+  "author": "Sean Jerve (https://github.com/SeanJerve)",
+  "category": "Frontend & Growth Engineering",
+  "pricing": {
+    "type": "paid",
+    "amount_usd": 19,
+    "currency": "USD"
+  },
+  "supported_agents": [
+    "Claude Code",
+    "Cursor",
+    "Copilot",
+    "Antigravity"
+  ],
+  "tags": [
+    "cro",
+    "landing-pages",
+    "conversion",
+    "local-business",
+    "gym",
+    "ui-ux"
+  ],
+  "entrypoints": {
+    "antigravity": "SKILL.md",
+    "cursor": "adapters/cursor/.cursorrules",
+    "cursor_rules": "adapters/cursor/rules/conversion-craft.mdc",
+    "claude": "adapters/claude/CLAUDE.md",
+    "copilot": "adapters/copilot/instructions.md",
+    "windsurf": "adapters/windsurf/.windsurfrules"
+  },
+  "created_at": "2026-11-08T00:57:33.871Z"
+}

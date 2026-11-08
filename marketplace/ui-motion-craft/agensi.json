@@ -1,0 +1,37 @@
+{
+  "manifest_version": "1.0",
+  "id": "seanjerve/ui-motion-craft",
+  "name": "ui-motion-craft",
+  "title": "Physics-Based UI Motion & Micro-Interactions Standard",
+  "version": "1.0.0",
+  "description": "Design engineering motion standard based on Emil Kowalski principles. Enforces spring physics, zero-sluggishness 60fps transitions, interruptible gestures, and anti-AI slop feel.",
+  "author": "Sean Jerve (https://github.com/SeanJerve)",
+  "category": "Design Engineering",
+  "pricing": {
+    "type": "paid",
+    "amount_usd": 15,
+    "currency": "USD"
+  },
+  "supported_agents": [
+    "Claude Code",
+    "Cursor",
+    "Copilot",
+    "Antigravity"
+  ],
+  "tags": [
+    "animation",
+    "motion",
+    "framer-motion",
+    "micro-interactions",
+    "frontend"
+  ],
+  "entrypoints": {
+    "antigravity": "SKILL.md",
+    "cursor": "adapters/cursor/.cursorrules",
+    "cursor_rules": "adapters/cursor/rules/ui-motion-craft.mdc",
+    "claude": "adapters/claude/CLAUDE.md",
+    "copilot": "adapters/copilot/instructions.md",
+    "windsurf": "adapters/windsurf/.windsurfrules"
+  },
+  "created_at": "2026-11-08T00:57:38.247Z"
+}

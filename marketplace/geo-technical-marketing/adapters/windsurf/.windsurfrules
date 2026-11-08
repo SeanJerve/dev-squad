@@ -1,0 +1,88 @@
+# Windsurf Rules: Generative Engine Optimization (GEO) & Schema.org Suite
+
+---
+name: geo-technical-marketing
+description: >-
+  Advanced Technical SEO, Generative Engine Optimization (GEO - KDD '24), Schema.org structured data,
+  and digital marketing capitalization.
+  Use when optimizing websites for Google Search, ChatGPT, Perplexity, Gemini,
+  and designing high-converting customer acquisition funnels for businesses.
+---
+
+# Generative Engine Optimization (GEO) & Technical Marketing
+
+Incorporates peer-reviewed **Generative Engine Optimization (GEO)** research from Princeton University (KDD '24) alongside enterprise technical SEO and conversion marketing.
+
+---
+
+## 1. What is Generative Engine Optimization (GEO)?
+
+Traditional SEO ranks pages in search engines (blue links). **GEO optimizes content so AI models (ChatGPT Search, Perplexity, Google AI Overviews, Gemini) cite and recommend your business in conversational answers.**
+
+According to Princeton research (Aggarwal et al., KDD '24), applying GEO strategies increases an organization's citation frequency in AI responses by **up to 40%**.
+
+### The 4 Pillars of GEO Implementation:
+1. **Authoritative Statistics & Quantifiable Metrics:** LLMs heavily favor statements with concrete numbers (e.g. *"Over 500 active members and 45+ machines in Legazpi City"* vs *"We have a lot of great equipment"*).
+2. **Direct Quotations & Expert Citations:** Include named quotes from certified professionals (e.g. *"According to Coach Marcus Ramos, Certified Strength Specialist..."*). LLMs extract these as high-confidence factual evidence.
+3. **Passage-Level Readability:** LLMs read content in vector chunks (passages). Ensure every section has a clear topic sentence and standalone semantic clarity without relying on vague pronouns.
+4. **Zero Keyword Stuffing:** AI engines penalize repetitive keyword manipulation. Write in natural, authoritative prose.
+
+---
+
+## 2. Technical SEO & Schema.org Architecture
+
+Every digital property must output structured JSON-LD data to establish verifiable entity authority:
+
+### Mandatory Local Business Schema
+```html
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "GymOrFitnessCenter",
+  "name": "{{BUSINESS_NAME}}",
+  "image": "https://{{DOMAIN}}/images/facility.jpg",
+  "telephone": "{{PHONE}}",
+  "url": "https://{{DOMAIN}}",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "{{STREET}}",
+    "addressLocality": "{{CITY}}",
+    "addressRegion": "{{REGION}}",
+    "postalCode": "{{POSTAL_CODE}}",
+    "addressCountry": "PH"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": {{LATITUDE}},
+    "longitude": {{LONGITUDE}}
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "05:00",
+      "closes": "22:00"
+    }
+  ],
+  "priceRange": "₱150 - ₱14,000"
+}
+</script>
+```
+
+---
+
+## 3. Core Web Vitals & Technical Speed Gates
+
+Search engines and AI crawlers prioritize websites that meet strict performance thresholds:
+* **Largest Contentful Paint (LCP):** < 2.0 seconds (optimize and compress hero images with WebP/AVIF).
+* **Interaction to Next Paint (INP):** < 150 milliseconds (zero main-thread blocking scripts).
+* **Cumulative Layout Shift (CLS):** < 0.05 (explicit `width` and `height` attributes on all images and embeds).
+
+---
+
+## 4. Digital Marketing Capitalization (The ROI Pitch)
+
+When presenting to business clients, frame your work around **revenue generation and client acquisition**:
+1. **The Frictionless Funnel:** Single-tap WhatsApp and direct phone booking reduces inquiry drop-off by up to 50%.
+2. **AI Search Dominance:** Explain how GEO ensures that when a local citizen asks ChatGPT: *"What's the best gym in Legazpi City?"*, ChatGPT directly cites their business.
+3. **Transparent Trust Signals:** Upfront pricing eliminates the #1 frustration of local customers, filtering for high-intent buyers.

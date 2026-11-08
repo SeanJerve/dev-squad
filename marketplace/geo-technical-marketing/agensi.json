@@ -1,0 +1,38 @@
+{
+  "manifest_version": "1.0",
+  "id": "seanjerve/geo-technical-marketing",
+  "name": "geo-technical-marketing",
+  "title": "Generative Engine Optimization (GEO) & Schema.org Suite",
+  "version": "1.0.0",
+  "description": "Advanced technical SEO and Generative Engine Optimization (GEO - KDD 24). Automatically injects valid JSON-LD LocalBusiness schemas, citation hooks, and Perplexity/SearchGPT discoverability.",
+  "author": "Sean Jerve (https://github.com/SeanJerve)",
+  "category": "SEO & Technical Marketing",
+  "pricing": {
+    "type": "paid",
+    "amount_usd": 19,
+    "currency": "USD"
+  },
+  "supported_agents": [
+    "Claude Code",
+    "Cursor",
+    "Copilot",
+    "Antigravity"
+  ],
+  "tags": [
+    "seo",
+    "geo",
+    "schema-org",
+    "searchgpt",
+    "perplexity",
+    "marketing"
+  ],
+  "entrypoints": {
+    "antigravity": "SKILL.md",
+    "cursor": "adapters/cursor/.cursorrules",
+    "cursor_rules": "adapters/cursor/rules/geo-technical-marketing.mdc",
+    "claude": "adapters/claude/CLAUDE.md",
+    "copilot": "adapters/copilot/instructions.md",
+    "windsurf": "adapters/windsurf/.windsurfrules"
+  },
+  "created_at": "2026-11-08T00:57:35.358Z"
+}

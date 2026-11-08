@@ -1,0 +1,86 @@
+---
+description: Conversion Rate Optimization (CRO) & Local Business Architecture
+globs: *
+alwaysApply: true
+---
+
+# Conversion Rate Optimization (CRO) & Local Business Architecture
+High-converting layout and copy architecture for service businesses and gyms. Enforces 3-second hook heuristics, pricing tier matrices, mobile thumb-zones, and friction-free CTAs.
+
+## Core Rules & Execution Directives
+---
+name: conversion-craft
+description: >-
+  Conversion Rate Optimization (CRO), visual hierarchy, and local business web architecture.
+  Specialized for gyms, fitness facilities, and service businesses with zero prior online presence.
+  Use when structuring landing pages, pricing grids, mobile thumb-zones, local SEO schema,
+  and lead-generation workflows that maximize client conversion.
+---
+
+# Conversion Craft & Local Business Web Architecture
+
+A specialized engineering skill for turning local service businesses (gyms, studios, clinics, agencies) into high-converting customer acquisition machines.
+
+---
+
+## 1. The Above-The-Fold Anatomy (The 5-Second Test)
+
+A first-time visitor decides whether to stay or bounce within 5 seconds. The hero section must answer three questions without scrolling:
+1. **What is this?** (Clear business name and high-energy value proposition, not clever poetry).
+2. **Where is it?** (Geographic anchor: e.g. *"Legazpi City's Premier Athletic Training Facility"*).
+3. **What is the next step?** (High-contrast, low-friction primary CTA: e.g. *"Claim 1-Day Pass • ₱150"* or *"Book Free Trial"*).
+
+---
+
+## 2. Mobile Thumb-Zone Ergonomics
+
+Over 75% of local gym website visitors browse on smartphones while on the go.
+* **Sticky Bottom Bar / CTA:** For mobile viewports, keep a persistent action bar pinned to the bottom of the screen (e.g. *"Join Today"* or *"Call Gym"*).
+* **Direct Tap Actions:** Phone numbers must use `<a href="tel:+63...">` and messaging must link directly to WhatsApp/Viber/Messenger.
+* **Thumb Reach:** Critical interactive targets must have a minimum touch target size of **48px x 48px** with adequate hit margins.
+
+---
+
+## 3. High-Converting Pricing Architecture
+
+When presenting membership tiers or packages:
+* **The Rule of Three:** Present 3 options (e.g., *Day Pass*, *Monthly Pro*, *Annual VIP*).
+* **Decoy & Anchor:** Highlight the middle tier as the **"Most Popular"** or **"Best Value"** using an accent border, subtle glow, or floating badge.
+* **Transparency Eliminates Friction:** Clearly display the price upfront. Hidden pricing ("Contact for price") increases drop-off by up to 60% for local consumer services.
+* **Micro-Perks Checkmarks:** List 3 to 4 distinct benefits per card with high-contrast checkmarks.
+
+---
+
+## 4. Local SEO & Google Rich Snippets (`schema.org`)
+
+Every local business website must embed JSON-LD structured data in the `<head>` to guarantee prominence in local Google Search and Google Maps:
+
+```html
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "GymOrFitnessCenter",
+  "name": "{{BUSINESS_NAME}}",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "{{STREET}}",
+    "addressLocality": "{{CITY}}",
+    "addressRegion": "{{PROVINCE}}",
+    "addressCountry": "PH"
+  },
+  "telephone": "{{PHONE}}",
+  "openingHours": "{{HOURS}}",
+  "priceRange": "{{PRICING_RANGE}}"
+}
+</script>
+```
+
+---
+
+## 5. Trust Signals & Social Proof Hierarchy
+
+Place trust triggers immediately after the hero and pricing sections:
+* **Metric Counters:** e.g., *500+ Active Members*, *6 Certified Coaches*, *45+ Equipment Stations*.
+* **Authentic Member Quotes:** Real local testimonials mentioning personal transformations.
+* **Facility Assurance:** Prominently mention amenities that matter locally (e.g., *100% Air-Conditioned*, *Free Member Parking*, *Clean Hot Showers*).
+
